@@ -1,22 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Inter_Tight } from "next/font/google";
+
 
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
+const geistSans = { variable: "" };
 
-const display = Inter_Tight({
-  variable: "--font-display",
-  subsets: ["latin", "latin-ext"],
-  weight: ["600", "700"],
-  display: "swap",
-});
+const display = { variable: "" };
 
 export const viewport: Viewport = {
   width: "device-width",
