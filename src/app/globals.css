@@ -1,0 +1,213 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------------
+   Design tokens — dashboard chrome.
+   The public menu deliberately does NOT use these: it is themed per
+   restaurant through the --brand-* custom properties (see lib/branding.ts).
+--------------------------------------------------------------------------- */
+
+:root {
+  --radius: 0.875rem;
+
+  --background: oklch(0.988 0.004 106);
+  --foreground: oklch(0.216 0.006 56);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.216 0.006 56);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.216 0.006 56);
+
+  --primary: oklch(0.554 0.135 58);
+  --primary-foreground: oklch(0.985 0.005 90);
+
+  --secondary: oklch(0.958 0.008 90);
+  --secondary-foreground: oklch(0.32 0.01 60);
+
+  --muted: oklch(0.958 0.008 90);
+  --muted-foreground: oklch(0.53 0.012 70);
+
+  --accent: oklch(0.945 0.02 85);
+  --accent-foreground: oklch(0.32 0.01 60);
+
+  --destructive: oklch(0.577 0.208 27);
+  --destructive-foreground: oklch(0.985 0.005 90);
+
+  --success: oklch(0.627 0.144 155);
+  --success-foreground: oklch(0.985 0.005 90);
+
+  --warning: oklch(0.712 0.15 70);
+  --warning-foreground: oklch(0.216 0.006 56);
+
+  --border: oklch(0.916 0.008 85);
+  --input: oklch(0.916 0.008 85);
+  --ring: oklch(0.554 0.135 58);
+
+  --sidebar: oklch(0.216 0.006 56);
+  --sidebar-foreground: oklch(0.94 0.008 85);
+  --sidebar-muted: oklch(0.68 0.01 80);
+  --sidebar-accent: oklch(0.29 0.01 60);
+  --sidebar-accent-foreground: oklch(0.985 0.005 90);
+  --sidebar-border: oklch(0.32 0.01 60);
+}
+
+.dark {
+  --background: oklch(0.19 0.006 56);
+  --foreground: oklch(0.96 0.006 90);
+
+  --card: oklch(0.232 0.007 56);
+  --card-foreground: oklch(0.96 0.006 90);
+
+  --popover: oklch(0.232 0.007 56);
+  --popover-foreground: oklch(0.96 0.006 90);
+
+  --primary: oklch(0.72 0.145 62);
+  --primary-foreground: oklch(0.19 0.006 56);
+
+  --secondary: oklch(0.29 0.008 60);
+  --secondary-foreground: oklch(0.96 0.006 90);
+
+  --muted: oklch(0.29 0.008 60);
+  --muted-foreground: oklch(0.72 0.012 80);
+
+  --accent: oklch(0.32 0.015 70);
+  --accent-foreground: oklch(0.96 0.006 90);
+
+  --destructive: oklch(0.65 0.19 25);
+  --destructive-foreground: oklch(0.96 0.006 90);
+
+  --success: oklch(0.68 0.14 155);
+  --success-foreground: oklch(0.19 0.006 56);
+
+  --warning: oklch(0.78 0.14 70);
+  --warning-foreground: oklch(0.19 0.006 56);
+
+  --border: oklch(0.32 0.008 60);
+  --input: oklch(0.34 0.008 60);
+  --ring: oklch(0.72 0.145 62);
+
+  --sidebar: oklch(0.16 0.006 56);
+  --sidebar-foreground: oklch(0.94 0.008 85);
+  --sidebar-muted: oklch(0.66 0.01 80);
+  --sidebar-accent: oklch(0.26 0.01 60);
+  --sidebar-accent-foreground: oklch(0.985 0.005 90);
+  --sidebar-border: oklch(0.26 0.01 60);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-muted: var(--sidebar-muted);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 12px);
+
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/40;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Keyboard users get a visible ring; pointer users do not. */
+  :focus-visible {
+    @apply outline-ring outline-2 outline-offset-2;
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--brand-primary, var(--primary)) 25%, transparent);
+  }
+
+  /* Respect reduced-motion for the animated menu shell. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Utility for the "scroll to section + offset for sticky nav" behaviour. */
+  .scroll-mt-24 {
+    scroll-margin-top: 6rem;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Print: only the QR card is rendered (see dashboard/qr/print-qr.tsx). */
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .print-hidden {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  @page {
+    margin: 12mm;
+  }
+}

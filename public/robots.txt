@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /dashboard
+Disallow: /login
+Disallow: /forgot-password
+Disallow: /auth
+Sitemap: https://yourdomain.com/sitemap.xml
