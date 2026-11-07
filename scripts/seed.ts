@@ -28,7 +28,6 @@ async function main() {
     if (error) throw error;
     userId = data.user.id;
   }
-
   const { error: rpcError } = await admin.rpc("provision_restaurant", {
     p_user_id: userId,
     p_restaurant_name: restaurantName,
