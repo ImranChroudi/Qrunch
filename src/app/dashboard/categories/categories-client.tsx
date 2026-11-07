@@ -267,7 +267,6 @@ export function CategoriesClient({ categories, counts }: { categories: Category[
                     <TableHead className="text-right">{t("categories.columnActions")}</TableHead>
                   </TableRow>
                 </TableHeader>
-                {/* @ts-expect-error dnd-kit typing mismatch in React 19 */}
                 <SortableContext items={items.map((i) => i.id)} strategy={verticalListSortingStrategy}>
                   <TableBody>
                     {items.map((category) => (

@@ -147,7 +147,6 @@ function ReorderPanel({
       <CardContent>
         <div className="overflow-hidden rounded-md border border-border/60">
           <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
-            {/* @ts-expect-error dnd-kit typing mismatch in React 19 */}
             <SortableContext items={items.map((i) => i.id)} strategy={verticalListSortingStrategy}>
               {items.map((item) => (
                 <SortableReorderRow key={item.id} item={item} />
