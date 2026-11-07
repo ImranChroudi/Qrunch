@@ -4,7 +4,6 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/sonner";
-
 const geistSans = { variable: "" };
 
 const display = { variable: "" };
